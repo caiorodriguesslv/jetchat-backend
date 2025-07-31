@@ -29,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CURRENT_URL =  "http://localhost:8000"
+
+# CORS settings
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
