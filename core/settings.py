@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_cors_headers',
-    'core',  s
+    'corsheaders',
+    'core',  
+    'accounts',
 
 ]
 
@@ -117,6 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
