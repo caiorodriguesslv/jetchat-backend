@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'core',  
     'accounts',
     'attachments',
+    'chats',
 ]
 
 MIDDLEWARE = [
