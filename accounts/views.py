@@ -57,7 +57,7 @@ class SignUpView(APIView, Authentication):
         if not name or not email or not password:
             raise AuthenticationFailed('Todos os campos são obrigatórios.')
 
-            signup = self.signUp(name, email, password)
+        signup = self.signUp(email, password, name)
 
         if not signup:
             raise AuthenticationFailed('Erro ao criar usuário.')

@@ -26,6 +26,7 @@ class User(AbstractUser):
 
     Este modelo herda de AbstractUser e permite personalizações adicionais.
     """
+    username = None  # Remove o campo username, pois utilizaremos o e-mail como identificador
     avatar = models.TextField(default='media/avatars/default-avatar.png')
     name = models.CharField(max_length=80)
     email = models.EmailField(unique=True)
