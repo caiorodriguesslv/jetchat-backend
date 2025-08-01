@@ -28,7 +28,7 @@ class ChatMessage(models.Model):
         null=True
     )
     attachment_id = models.IntegerField(null=True)
-    viewd_at = models.DateTimeField(null=True)
+    viewed_at = models.DateTimeField(null=True)
     deleted_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
