@@ -78,38 +78,38 @@ class ChatMessageSerializer(serializers.ModelSerializer):
         return UserSerializer(chat_message.from_user).data
 
     def get_attachment(self, chat_message):
-        """ 
+        """
         Retorna o anexo da mensagem, se houver.
         Se o anexo for do tipo 'FILE', usa FileAttachmentSerializer.
         Se for do tipo 'AUDIO', usa AudioAttachmentSerializer.
         """
 
-        # Verifica se a mensagem tem um anexo do tipo 'FILE' 
-        if message.attachment_code == 'FILE':
-            file_attachament = FileAttachment.objects.filter(
-                id=message.attachment_id,
+        # Verifica se a mensagem tem um anexo do tipo 'FILE'
+        if chat_message.attachment_code == 'FILE':
+            file_attachment = FileAttachment.objects.filter(
+                id=chat_message.attachment_id,
                 attachment_code='FILE'
             ).first()
             
-            # Se não houver anexo, retorna None
-            if not file_attachament:
+            if not file_attachment:
                 return None
 
-            return{
-                "file": FileAttachmentSerializer(file_attachament).data
+            return {
+                "file": FileAttachmentSerializer(file_attachment).data
             }
 
         # Verifica se a mensagem tem um anexo do tipo 'AUDIO'
-         if message.attachment_code == 'AUDIO':
-            audio_attachament = AudioAttachment.objects.filter(
-                id=message.attachment_id,
+        if chat_message.attachment_code == 'AUDIO':
+            audio_attachment = AudioAttachment.objects.filter(
+                id=chat_message.attachment_id,
                 attachment_code='AUDIO'
             ).first()
             
-            # Se não houver anexo, retorna None
-            if not audio_attachament:
+            if not audio_attachment:
                 return None
 
-            return{
-                "audio": AudioAttachmentSerializer(audio_attachament).data
+            return {
+                "audio": AudioAttachmentSerializer(audio_attachment).data
             }
+
+        return None
